@@ -1,0 +1,73 @@
+
+ <html>
+       <head>
+         <title>Form Generator</title>
+       </head>
+       <body>
+         <h1>Form Generator</h1>
+         <form method="post" action="/insert">
+           <label for="formName">Form Name:</label>
+           <input type="text" id="formName" name="formName" required>
+
+           <div id="fieldsContainer">
+             <h3>Form Fields:</h3>
+             <div class="field">
+               <label for="fieldLabel">Label:</label>
+               <input type="text" id="fieldLabel" name="fields[0][label]" required>
+
+               <label for="fieldType">Type:</label>
+               <input type="text" id="fieldType" name="fields[0][type]" required>
+
+               <label for="fieldRequired">Required:</label>
+               <input type="checkbox" id="fieldRequired" name="fields[0][required]">
+             </div>
+           </div>
+
+           <button type="button" onclick="addField()">Add Field</button>
+           <button type="submit">Generate Form</button>
+         </form>
+
+         <script>
+           let fieldCounter = 1;
+
+           function addField() {
+             const fieldsContainer = document.getElementById('fieldsContainer');
+             const fieldDiv = document.createElement('div');
+             fieldDiv.className = 'field';
+
+             const labelInput = document.createElement('input');
+             labelInput.type = 'text';
+             labelInput.name = `fields[${fieldCounter}][label]`;
+             labelInput.required = true;
+             const labelLabel = document.createElement('label');
+             labelLabel.htmlFor = 'fieldLabel';
+             labelLabel.textContent = 'Label:';
+             fieldDiv.appendChild(labelLabel);
+             fieldDiv.appendChild(labelInput);
+
+             const typeInput = document.createElement('input');
+             typeInput.type = 'text';
+             typeInput.name = `fields[${fieldCounter}][type]`;
+             typeInput.required = true;
+             const typeLabel = document.createElement('label');
+             typeLabel.htmlFor = 'fieldType';
+             typeLabel.textContent = 'Type:';
+             fieldDiv.appendChild(typeLabel);
+             fieldDiv.appendChild(typeInput);
+
+             const requiredInput = document.createElement('input');
+             requiredInput.type = 'checkbox';
+             requiredInput.name = `fields[${fieldCounter}][required]`;
+             const requiredLabel = document.createElement('label');
+             requiredLabel.htmlFor = 'fieldRequired';
+             requiredLabel.textContent = 'Required:';
+             fieldDiv.appendChild(requiredLabel);
+             fieldDiv.appendChild(requiredInput);
+
+             fieldsContainer.appendChild(fieldDiv);
+
+             fieldCounter++;
+           }
+         </script>
+       </body>
+     </html>

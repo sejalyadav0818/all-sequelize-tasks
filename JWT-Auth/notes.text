@@ -1,0 +1,12 @@
+npm init -y
+ app.js
+ npm install mysql2 express
+ npm install --save-dev sequelize-cli 
+ npm install --save sequelize
+ npx sequelize-cli init 
+ npx sequelize-cli model:generate --name Customer  --attributes email:string,password:string,fname:string,lname:string
+ npx sequelize-cli model:generate --name Task  --attributes user_id:integer,Title:string,details:string,status:string
+ npx sequelize-cli db:migrate  
+ //we can use same url with post,get , put....
+ https://www.youtube.com/watch?v=6-g8OdNwSgM
+ https://www.youtube.com/watch?v=LihTEALmpk8

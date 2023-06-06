@@ -1,0 +1,71 @@
+# swagger : "2.0"
+# info:
+#    title : Swagger api test
+#    description : Crud operation using sequelize
+#    version : 1.0
+#    contact : 
+#        email : sejalyadav122@gmail.com
+#     liscence:
+#     name: Apache 2.0
+#     url: "http://www.apache.org/liscences/LIS"
+#   servers:
+#     -url: http://localhost:4000
+#     description: THis is my local Server
+#     -url: http://example.com/
+#     description: This is my original URL
+# schemes: [https,http]
+swagger: "2.0"
+info:
+  title: CRUD API
+  description: This is  API Documentation
+  version: 1.0
+  contact:
+    email: syosas@gmail.com
+  liscence:
+    name: Apache 2.0
+    url: "http://www.apache.org/liscences/LIS"
+  servers:
+    -url: http://localhost:4000
+    description: THis is my local Server
+    -url: http://example.com/
+    description: This is my original URL
+schemes: [https,http]
+
+
+paths : 
+  # /stringobj :
+  #     get:
+  #      summary : Return user data
+  #      description : it give user details such as id, name , departnment.
+  #      responses : 
+  #          200:
+  #            description: Success
+  #            schema: 
+  #                type: object
+                
+   
+  /user:
+    get:
+      summary: Returns a list of users.
+      description: People Who are already registered
+      responses:
+        200:    # status code
+          description: Successul Response
+          schema: 
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+  /string :
+   get:
+     summary : Return a message  
+     description : it is just retruning a user details from user table
+     responses : 
+         200 : 
+            description : success.
+         400 :
+            description : error occur.
+         500 :
+            description : Internal server error.
